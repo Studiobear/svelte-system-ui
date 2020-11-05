@@ -46,8 +46,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
+    "@babel/core": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "@types/jest": "^26.0.14",
     "@types/styled-system": "^5.1.10",
     "babel-jest": "^26.3.0",
@@ -63,11 +63,11 @@
     "prettier": "^2.1.2",
     "prettier-plugin-svelte": "^1.4.0",
     "styled-system": "^5.1.5",
-    "ts-jest": "^26.4.1",
-    "typescript": "^4.0.3",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5",
     "typography-theme-st-annes": "^0.16.19"
   },
   "dependencies": {
-    "svelte": "^3.29.0"
+    "svelte": "^3.29.4"
   }
 }

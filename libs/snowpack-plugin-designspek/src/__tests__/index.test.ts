@@ -1,13 +1,12 @@
 import path from 'path'
 import { promises as fs } from 'fs'
-const snowpackPluginDesignspek = require('../index.ts')
+import plugin from '../index'
 
-describe('snowpack-plugin-mdx', () => {
+describe('snowpack-plugin-designspek', () => {
   it('should compile .svelte file', async () => {
     const filePath = path.join(__dirname, '__fixtures__/Component.svelte')
-    const contents = await fs.readFile(filePath, 'utf-8')
-    const plugin = snowpackPluginDesignspek({}, {})
-    const result = await plugin.load({ contents, filePath })
+    const pluginSPD = plugin({}, {})
+    const result = await pluginSPD.load({ filePath })
     expect(result['.js']).toMatchSnapshot('.js')
   })
 })

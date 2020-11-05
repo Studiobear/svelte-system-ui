@@ -7,7 +7,7 @@
     "build": "svite build -ts"
   },
   "dependencies": {
-    "svelte": "^3.29.0",
+    "svelte": "^3.29.4",
     "svelte-hmr": "0.10.3"
   },
   "devDependencies": {
@@ -21,6 +21,6 @@
     "svelte-preprocess": "^4.3.2",
     "svite": "^0.6.1",
     "tslib": "^2.0.1",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.5"
   }
 }

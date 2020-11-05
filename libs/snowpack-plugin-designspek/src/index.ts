@@ -1,13 +1,13 @@
-const svelteRollupPlugin = require('rollup-plugin-svelte')
-const fs = require('fs/promises')
-const utils = require('@rollup/pluginutils')
-const svelte = require('svelte/compiler')
-const { parse } = require('./util/parse')
+import svelteRollupPlugin from 'rollup-plugin-svelte'
+import fs from 'fs/promises'
+import utils from '@rollup/pluginutils'
+import { compile, preprocess } from 'svelte/compiler'
+import { parse } from './util'
 
-module.exports = function plugin(
+export const plugin = (
   snowpackConfig: any,
   pluginOptions: SnowpackPluginDesignspekOptions,
-) {
+) => {
   const isDev = process.env.NODE_ENV !== 'production'
 
   let filter: any
@@ -38,11 +38,11 @@ module.exports = function plugin(
     async load({ filePath }: { filePath: string }) {
       const contents = await fs.readFile(filePath, 'utf-8')
 
-      const svxPreprocess = await svelte.preprocess(contents, {
+      const svxPreprocess = await preprocess(contents, [], {
         filename: filePath,
       })
       const parsePre = await parse(svxPreprocess.code)
-      const { js, css } = await svelte.compile(parsePre)
+      const { js, css } = await compile(parsePre)
       // console.log('js: ', js.code)
       const output: any = {
         '.js': {
@@ -74,3 +74,5 @@ export interface SnowpackPluginDesignspekOptions {
    */
   designspekOptions?: Record<string, any>
 }
+
+export default plugin
